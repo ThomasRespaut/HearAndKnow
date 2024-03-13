@@ -1,0 +1,67 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="left">
+                <ul>
+                    <li>Accueil</li>
+                    <li>Utilisateur</li>
+                    <li>Calendrier</li>
+                    <li>Formations</li>
+                    <li>Statistiques</li>
+                    <li>Hear&Know</li>
+                    <li>Mon compte</li>
+                </ul>
+
+            </div>
+            <div class="right">
+                <div class="top">
+                    <img src="chemin/vers/votre/image.jpg" alt="Description de l'image">
+                    <h1>Espace Client</h1>
+                    <button>Espace Admin</button>
+                    <button>Se déconnecter</button>
+                </div>
+                <div class="patient">
+                    <form>
+                        <label>Patient :</label>
+                        <select>
+                            <option>Jean</option>
+                            <option>Elvin</option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="fenetre">
+                    <div class="menu">
+                        <ul>
+                            <li>Fiche</li>
+                            <li>Bilan</li>
+                            <li>Question</li>
+                            <li>Historique</li>
+                        </ul>
+                    </div>
+
+                    {% block content %}{% endblock %}
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    </body>
+</html>

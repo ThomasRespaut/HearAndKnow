@@ -1,0 +1,31 @@
+body{
+    font-family: "Calibri";
+}
+
+ul {
+    list-style-type: none; /* Supprime les puces */
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+
+
+}
+
+.left{
+    background: blue;
+    color: white;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left ul li{
+    margin-bottom:  2vh;
+}
+
+.left{}
