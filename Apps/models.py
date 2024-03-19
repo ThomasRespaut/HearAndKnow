@@ -8,50 +8,12 @@ class Images(models.Model):
     def __str__(self):
         return self.name
 
-class Bilan(models.Model):
-    titre = models.CharField(max_length=100)
-    # Ajoutez d'autres champs selon vos besoins, par exemple :
-    # date = models.DateField()
-    # description = models.TextField()
-
-    def __str__(self):
-        return self.titre
-
-class Question(models.Model):
-    titre = models.CharField(max_length=100)
-
-    # Ajoutez d'autres champs selon vos besoins, par exemple :
-    # date = models.DateField()
-    # description = models.TextField()
-
-    def __str__(self):
-        return self.titre
-
-class Historique(models.Model):
-    titre = models.CharField(max_length=100)
-    # Ajoutez d'autres champs selon vos besoins, par exemple :
-    # date = models.DateField()
-    # description = models.TextField()
-
-    def __str__(self):
-        return self.titre
-
 def get_patient_list():
     try:
         with connection.cursor() as cursor:
             cursor.execute("SELECT id_user, CONCAT(prenom_user, ' ', nom_user) as name FROM patient;")
             patients = cursor.fetchall()
             return patients
-    except OperationalError as e:
-        print("Erreur lors de l'exécution de la requête SQL:", e)
-        return None
-
-def custom_sql_query():
-    try:
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT * FROM patient")
-            result = cursor.fetchall()
-        return result
     except OperationalError as e:
         print("Erreur lors de l'exécution de la requête SQL:", e)
         return None

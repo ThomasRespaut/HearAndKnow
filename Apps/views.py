@@ -1,10 +1,10 @@
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
-from .models import Question,get_patient_name, get_patient_list
-from .fiche import Fiche, verifier_creer_fiche
+from .models import get_patient_name, get_patient_list
 from django.views.decorators.csrf import csrf_protect
 from io import BytesIO
+from .fiche import Fiche, verifier_creer_fiche
 from .questions import Generer_reponse
 from .meeting import Meeting
 from gtts import gTTS
@@ -53,6 +53,7 @@ class BilanView(TemplateView):
             try:
                 # Reconnaître le texte à partir de l'audio enregistré
                 discussion = recognizer.recognize_google(audio_data, language="fr-FR")
+                #discussion = "imagine une discussion entre un patient et un docteur"
                 context['discussion'] = discussion
 
                 id_patient = request.session['selected_patient_id']
@@ -106,7 +107,8 @@ class FicheView(TemplateView):
                 context['name_patient'] = self.request.session['name_patient']
 
             fiche = verifier_creer_fiche(id_patient)
-            context['fiches'] = fiche
+            print(fiche)
+            context['fiche'] = fiche
 
         return context
 
@@ -139,7 +141,6 @@ class QuestionView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['questions'] = Question.objects.all()  # Récupère tous les objets Question
         context['patients'] = get_patient_list()
 
         if 'selected_patient_id' in self.request.session:
