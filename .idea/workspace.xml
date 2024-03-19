@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version">
-      <change afterPath="$PROJECT_DIR$/Apps/fiche.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/meeting.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/migrations/0002_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/questions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/migrations/0002_bilan_fiche_historique_images_question_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/migrations/0005_alter_meeting_meeting_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/migrations/0006_remove_meeting_key.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/migrations/0007_remove_fiche_titre_remove_generer_reponse_key_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/recording.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/fiche.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/fiche.html" afterDir="false" />
-    </list>
+    <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
