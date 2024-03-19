@@ -1,0 +1,28 @@
+<!-- speech_to_text.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrement vocal en temps réel</title>
+</head>
+<body>
+    <h1>Enregistrement vocal en temps réel</h1>
+    <p>Cliquez sur le bouton pour enregistrer votre voix :</p>
+    
+    <!-- Formulaire pour soumettre l'enregistrement vocal -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit">Enregistrer la voix</button>
+    </form>
+
+    <div id="result">
+        <!-- Affichage du résultat de la transcription vocale -->
+        {% if text %}
+            <h2>Résultat de la transcription :</h2>
+            <p>{{ text }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

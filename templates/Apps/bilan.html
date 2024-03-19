@@ -1,0 +1,65 @@
+{% extends "Apps/base.html" %}
+{% load static %}
+
+{% block menu %}
+    <ul>
+        <li><a href="{% url 'fiche' %}">Fiche</a></li>
+        <li id="selected"><a href="{% url 'bilan' %}">Bilan</a></li>
+        <li><a href="{% url 'question' %}">Question</a></li>
+        <li><a href="{% url 'historique' %}">Historique</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="bilan">
+        <form id="upload_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="rdv">
+                <label>Titre du rendez-vous :</label>
+                <input type="text" id="title" name="title" value = "{{ title }}" required>
+            </div>
+            
+            <div class="rdv_button">
+                <div class="audio">
+                    <button type="submit" name="start_recording"><img src="{% static 'start.png' %}" alt="start" class="icone"></button>
+                    <button type="submit" name="pause"><img src="{% static 'pause.png' %}" alt="pause" class="icone"></button>
+                </div>
+                
+              <div class="import">
+                    <label for="audio_file_input">
+                        <img src="{% static 'importer.png' %}" alt="importer" class="icone">
+                    </label>
+                    <input type="file" id="audio_file_input" name="import_audio" accept="audio/mp3" style="display: none;">
+                </div>
+            </div>
+            
+            <div class="bilan_text">
+                <textarea name="bilan" id="bilan_text">{{ bilan }}</textarea>
+            </div>
+
+            <div class="enregistrer">
+                <button type="submit" name="save"><span>Enregistrer</span></button>
+            </div>
+            
+        
+        </form>
+ 
+    
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fileInput = document.getElementById('audio_file_input');
+            const uploadForm = document.getElementById('upload_form');
+    
+            // Soumettre le formulaire automatiquement lorsqu'un fichier est sélectionné
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                    uploadForm.submit();
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

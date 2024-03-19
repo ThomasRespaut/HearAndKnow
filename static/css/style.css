@@ -1,0 +1,435 @@
+body{
+    font-family: "Calibri";
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none; /* Supprime les puces */
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    margin : 0;
+    padding: 0;
+
+}
+
+.left{
+    background: #0058AA;
+    color: white;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.left ul li{
+    margin-bottom:  2vh;
+}
+
+.top img {
+    width: 135px; /* Ajustez la largeur de l'image selon vos besoins */
+    margin-right: 20px; /* Espacement entre l'image et le texte */
+}
+
+.top h1 {
+    margin: 0;
+    text-align: center;
+    flex-grow: 1; /* Permet au titre de s'étendre autant que possible */
+}
+
+.right{
+    width: 90vw;
+    height: 100vh;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #CCCCCC;
+    height: 6vh;
+}
+
+.top button{
+    width: 8vw;
+    background: black;
+    color : white;
+    margin-top : 1vh;
+    height: 4vh;
+    margin-right: 1vw;
+    border-right: 10px;
+    text-align: center;
+    font-size : 14px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.fenetre{
+    max-height: 80vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin: 3vh auto;
+}
+.patient {
+    width: 80vw;
+    height: 5vh;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+}
+
+.patient form {
+    display: flex;
+    align-items: center; /* Pour centrer verticalement les éléments */
+}
+
+.patient form label {
+    font-size: 25px;
+    font-weight: 1000;
+}
+
+.patient form select {
+    width: 10vw;
+    height: 3vh;
+    background : ghostwhite;
+    margin-left: 10px; /* Ajoutez un espacement entre le label et le select si nécessaire */
+}
+
+.menu ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.menu ul li{
+    width: 5vw;
+    background: ghostwhite;
+    border: solid 2px #CCCCCC;
+    text-align: center;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color : black;
+}
+
+#selected{
+    background: #CCCCCC;
+    border: solid 2px #CCCCCC;
+}
+
+.patient_content{
+    height: auto;
+    min-height: 65vh;
+    width: 80vw;
+    padding-bottom: 2vh;
+    background: #C4C4C4;
+    overflow-y: auto;
+}
+
+
+.footer{
+    background: #CCCCCC;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    margin: 1vh auto 0 auto;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+
+.bilan{
+    display: flex;
+    flex-direction: column;
+}
+
+.rdv{
+    margin : 3vh 0 0 5vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.rdv label{
+    font-size: 22px;
+    margin-right: 2vw;
+}
+
+.rdv input[type = "text"]{
+    width: 15vw;
+
+}
+
+.rdv_button{
+    margin-top : 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.audio{
+    margin-left: 5vw;
+}
+
+.audio button{
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 20px;
+}
+
+.import{
+    margin-right: 5vw;
+}
+
+.import button{
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 20px;
+}
+
+.bilan_text textarea{
+    background: white;
+    margin: 2vh auto 0 auto;
+    display: flex;
+    height: 40vh;
+    width: 60vw;
+}
+
+.enregistrer{
+    margin-top: 1vh;
+}
+
+.enregistrer button{
+    display: flex;
+    margin: auto ;
+    width: auto;
+    color: white;
+    background: black;
+    padding : 8px 10px 8px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.enregistrer button span{
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    background: white ;
+    justify-content: center;
+    margin : 4vh 4vw;
+    height: 60vh;
+    padding-bottom: 2vh;
+}
+
+.item {
+  flex: 0 0 42%; /* Chaque élément occupera 50% de la largeur du conteneur parent */
+  box-sizing: border-box; /* Pour inclure les bordures et le padding dans la largeur spécifiée */
+  /*border: 1px solid #000; */ /* Juste pour la décoration, vous pouvez le modifier ou le supprimer selon vos besoins */
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+
+.item .titre{
+    border: solid 1px black;
+    margin: 0;
+    padding: 0;
+    width: 14vw;
+    height: 4vh;
+    text-align: center;
+
+}
+
+.item .titre h3{
+    font-size: 16px;
+    padding: 0;
+    margin-top: 0.5vh;
+}
+
+.item ul{
+    list-style-type: circle;
+
+}
+
+.question_info{
+    margin-left: 5vw;
+    font-size: 20px;
+}
+
+.question_info h3{
+    font-weight: normal;
+}
+
+.question, .reponse{
+    width: 60vw;
+    background: white;
+    margin-left: 5vw;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+}
+
+.question textarea,
+.reponse textarea{
+        height: 14vh;
+    border: none;
+}
+
+.reponse{
+    margin-top : 3vh;
+}
+
+.content_question,
+.content_reponse{
+    display: flex;
+    flex-direction: row;
+}
+
+.content_question button,
+.content_question input[type="submit"],
+.content_reponse button{
+    height: 3vh;
+    margin-top: 10vh;
+    background: transparent;
+    border: none;
+    color: white;
+    margin-left: 0.5vw;
+
+}
+
+.histo_rdv{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    max-height: 25vh;
+    background: white;
+    margin-left: 3vw;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    padding : 0 16px;
+    padding-bottom: 2vh;
+    overflow-y: auto;
+}
+
+.histo_rdv button{
+    background: darkgreen;
+    color: white;
+    border: none;
+    align-self: flex-end;
+    padding: 8px;
+}
+
+.icone{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+button .icone{
+    width: 40px;
+    height: 40px;
+
+}
+
+.connection{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.left_connection{
+    width: 70%;
+    height: 100vh;
+}
+
+.left_connection img{
+    width: 70vw;
+    height: 100vh;
+}
+
+.right_connection{
+    width: 30%;
+    display: flex;
+}
+
+.form_connection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.form_connection h1{
+    text-align: center;
+    font-size: 30px;
+}
+
+.form_connection form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_connection form label{
+    margin-bottom: 0.25vw;
+}
+
+.form_connection form input[type="text"],
+.form_connection form input[type="password"]{
+    margin-bottom: 3vh;
+    width: 20vw;
+    background: lightgray;
+    height: 3vh;
+    color: black;
+    border-radius: 10px;
+}
+
+
+.form_connection form input[type="submit"]
+{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 10vw;
+    text-align: center;
+    background  : lightgray;
+    height: 4vh;
+    padding: 8px 5px;
+    color: black;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+{% extends "Apps/base.html" %}
+
+{% block menu %}
+    <ul>
+        <li><a href="{% url 'fiche' %}">Fiche</a></li>
+        <li><a href="{% url 'bilan' %}">Bilan</a></li>
+        <li><a href="{% url 'question' %}">Question</a></li>
+        <li id="selected"><a href="{% url 'historique' %}">Historique</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    
+    <div class="bilan scroll">
+    
+        {% for meeting in meetings %}
+            
+            <div class="histo_rdv">
+            <h3>{{ meeting.title }}, {{ meeting.meeting_date }}</h3>
+            <p>{{ meeting.bilan }}</p>
+            <button>Ouvrir</button>
+        </div>
+        	
+        {% endfor %}
+    
+    </div>
+    
+
+{% endblock %}
