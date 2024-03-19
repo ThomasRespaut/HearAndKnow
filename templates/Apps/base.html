@@ -7,61 +7,80 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-        <title>Document</title>
+        <title>Hear&Know</title>
     </head>
+    
     <body>
 
         <div class="container">
             <div class="left">
                 <ul>
-                    <li>Accueil</li>
-                    <li>Utilisateur</li>
-                    <li>Calendrier</li>
-                    <li>Formations</li>
-                    <li>Statistiques</li>
-                    <li>Hear&Know</li>
-                    <li>Mon compte</li>
+                    <li><img src="{% static 'accueil.png' %}" alt="Accueil" class="icone">Accueil</li>
+                    <li><img src="{% static 'utilisateur.png' %}" alt="utilisateur" class="icone">Utilisateur</li>
+                    <li><img src="{% static 'calendrier.png' %}" alt="calendrier" class="icone">Calendrier</li>
+                    <li><img src="{% static 'education.png' %}" alt="education" class="icone">Formations</li>
+                    <li><img src="{% static 'statistiques.png' %}" alt="statistiques" class="icone">Statistiques</li>
+                    <li><img src="{% static 'pharmacie.png' %}" alt="pharmacie" class="icone">Hear&Know</li>
+                    <li><img src="{% static 'compte.png' %}" alt="compte" class="icone">Mon compte</li>
                 </ul>
 
             </div>
             <div class="right">
                 <div class="top">
-                    <img src="chemin/vers/votre/image.jpg" alt="Description de l'image">
+                    <img src="{% static 'ehpad.jpg' %}" alt="Ehpad">
                     <h1>Espace Client</h1>
                     <button>Espace Admin</button>
                     <button>Se déconnecter</button>
                 </div>
-                <div class="patient">
-                    <form>
-                        <label>Patient :</label>
-                        <select>
-                            <option>Jean</option>
-                            <option>Elvin</option>
-                        </select>
-                    </form>
-                </div>
+
 
                 <div class="fenetre">
-                    <div class="menu">
-                        <ul>
-                            <li>Fiche</li>
-                            <li>Bilan</li>
-                            <li>Question</li>
-                            <li>Historique</li>
-                        </ul>
+                    <div class="patient">
+                        <form id="patientForm" method="post">
+                            {% csrf_token %}
+                            <label for="patientSelect">Patient :</label>
+                            <select id="patientSelect" name="patientSelect">
+                            
+                                {% if selected_patient_id %}
+                                    <option value="{{ selected_patient_id}}">{{ name_patient }}</option>
+                                {% endif %}
+                            
+                                {% for patient in patients %}
+                                    <option value="{{ patient.0 }}">{{ patient.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </form>
+
+                    </div>
+                
+                    <div class="menu">                     
+                         {% block menu %}{% endblock %}
+                    </div>
+                
+                    <div class="patient_content">
+                        {% block content %}{% endblock %}
                     </div>
 
-                    {% block content %}{% endblock %}
-
-
+        
                 </div>
-
-
-
+            
+                 <div class="footer">
+                    <p>Vous êtes connecté en tant que Michel Dupont</p>
+                </div>
+            
             </div>
         </div>
 
 
 
     </body>
+    
+<script>
+    var patientSelect = document.getElementById("patientSelect");
+
+    patientSelect.addEventListener("change", function() {
+        document.getElementById("patientForm").submit();
+    });
+</script>
+
 </html>

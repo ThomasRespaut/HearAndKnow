@@ -4,33 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Hearanknow.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Apps/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hearanknow/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hearanknow/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hearanknow/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hearanknow/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hearanknow/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Apps/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Apps/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Apps/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Apps/today.html" afterDir="false" />
+    <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/fiche.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/fiche.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/meeting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/meeting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/migrations/0002_bilan_fiche_historique_images_question_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/migrations/0002_bilan_fiche_historique_images_question_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/questions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/questions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/recording.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/recording.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hearanknow/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hearanknow/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hearanknow/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hearanknow/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/bilan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/bilan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/fiche.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/fiche.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/historique.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/historique.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/question.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Apps/speech_to_text.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/speech_to_text.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +42,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -56,29 +55,36 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2dczwNM0mfUGv6RolixQhbOk3YR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.Hearanknow.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.Hearanknow.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+    ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Hearanknow" type="Python.DjangoServer" factoryName="Django server">
       <module name="Hearanknow" />
@@ -148,11 +154,62 @@
       <option name="presentableId" value="Default" />
       <updated>1710322391194</updated>
       <workItem from="1710322395378" duration="152000" />
-      <workItem from="1710322570011" duration="6797000" />
+      <workItem from="1710322570011" duration="15502000" />
+      <workItem from="1710349554760" duration="1836000" />
+      <workItem from="1710408686909" duration="671000" />
+      <workItem from="1710664607100" duration="4751000" />
+      <workItem from="1710674120419" duration="14320000" />
+      <workItem from="1710713606423" duration="3056000" />
+      <workItem from="1710748610384" duration="35235000" />
+      <workItem from="1710834492911" duration="6561000" />
     </task>
+    <task id="LOCAL-00001" summary="1st version">
+      <option name="closed" value="true" />
+      <created>1710337202640</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710337202640</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1st version">
+      <option name="closed" value="true" />
+      <created>1710337235443</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710337235443</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1st version">
+      <option name="closed" value="true" />
+      <created>1710337320079</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710337320079</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1st version" />
+    <option name="LAST_COMMIT_MESSAGE" value="1st version" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Hearanknow/settings.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Apps/urls.py</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

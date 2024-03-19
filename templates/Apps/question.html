@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "Apps/base.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block menu %}
+    <ul>
+        <li><a href="{% url 'fiche' %}">Fiche</a></li>
+        <li><a href="{% url 'bilan' %}">Bilan</a></li>
+        <li id="selected"><a href="{% url 'question' %}">Question</a></li>
+        <li><a href="{% url 'historique' %}">Historique</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    
+    <div class="bilan">
+        <form id="form_question" method="post">
+            {% csrf_token %}
+            <div class="question_info">
+                <h3>Avez vous une question concernant le patient {{ name_patient}} ? </br>Posez votre question en l'écrivant ci-dessous ou en utilisant votre microphone.</h3>
+            </div>
+
+            <div class ="content_question">
+                <div class="question">
+                    <label>Ecrivez votre question:</label>
+                    <textarea name="question_text" id="question_text">{% if question %}{{ question }}{% endif %}</textarea>
+                </div>
+
+                <button type="submit" name="record_button"><img src="{% static 'micro.png' %}" alt="micro" class="icone"></button>
+                <button type="submit" name="ask_question"><img src="{% static 'rechercher.png' %}" alt="rechercher" class="icone"></button>
+
+            </div>
+        </form>
+    
+        <form method="POST">
+            {% csrf_token %}
+            <div class="content_reponse">
+                <div class="reponse">
+                    <label>Réponse:</label>
+                    <textarea name="question_text" id="question_text">{% if reponse %}{{ reponse }}{% endif %}</textarea>
+                </div>
+                
+                <button type="submit" name="convert_audio"><img src="{% static 'laudio.png' %}" alt="audio" class="icone"></button>
+            </div>
+        </form>
+
+
+    
+    </div>
+    
+    {% if audio %}
+        <audio controls>
+              <source src="{% url 'question' %}" type="audio/mpeg">
+        </audio>
+    {%  endif %}
+    
+    
+    
+
+{% endblock %}

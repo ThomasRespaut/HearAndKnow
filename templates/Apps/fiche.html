@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "Apps/base.html" %}
 
-</body>
-</html>
+{% block menu %}
+    <ul>
+        <li id="selected"><a href="{% url 'fiche' %}">Fiche</a></li>
+        <li><a href="{% url 'bilan' %}">Bilan</a></li>
+        <li><a href="{% url 'question' %}">Question</a></li>
+        <li><a href="{% url 'historique' %}">Historique</a></li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+    
+    <div class="bilan">
+    
+            {% for fiche in fiches %}
+            
+            <div class="flex-container">
+            
+                <div class="item">
+                  <div class="titre">              
+                      <h3>Habitudes Alimentaires</h3>
+                  </div>
+                  <p>{{ fiche.habitudes_alimentaires }}</p>
+              </div>
+            
+                <div class="item">
+                  <div class="titre">              
+                      <h3>Habitudes de Sommeil</h3>
+                  </div>
+                  <p>{{ fiche.habitudes_de_sommeil }}</p>
+              </div>
+            
+            <div class="item">
+                <div class="titre">
+                    <h3>Autres</h3>
+                </div>
+                <p>{{ fiche.autres }}</p>
+            </div>
+            
+            <div class="item">
+                <div class="titre">
+                    <h3>Situation Médicale</h3>
+                </div>
+              <p>{{ fiche.situation_medicale }}</p>
+          </div>
+            
+        </div>
+                
+            {% endfor %}
+
+{% endblock %}

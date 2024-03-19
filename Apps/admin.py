@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import ToDoItem
+from .models import Images
 
-admin.site.register(ToDoItem)
-
+admin.site.register(Images)

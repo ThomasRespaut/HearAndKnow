@@ -46,7 +46,5 @@ class Migration(migrations.Migration):
                 ('titre', models.CharField(max_length=100)),
             ],
         ),
-        migrations.DeleteModel(
-            name='ToDoItem',
-        ),
+
     ]
