@@ -5,31 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/fiche.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/fiche.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/meeting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/meeting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/migrations/0002_bilan_fiche_historique_images_question_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/migrations/0002_bilan_fiche_historique_images_question_and_more.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/questions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/questions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/recording.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/recording.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Apps/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hearanknow/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hearanknow/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hearanknow/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hearanknow/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/bilan.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/bilan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/fiche.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/fiche.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/historique.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/historique.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/question.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/question.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Apps/speech_to_text.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/speech_to_text.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +137,7 @@
       <workItem from="1710674120419" duration="14320000" />
       <workItem from="1710713606423" duration="3056000" />
       <workItem from="1710748610384" duration="35235000" />
-      <workItem from="1710834492911" duration="6561000" />
+      <workItem from="1710834492911" duration="6873000" />
     </task>
     <task id="LOCAL-00001" summary="1st version">
       <option name="closed" value="true" />
