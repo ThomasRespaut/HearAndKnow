@@ -1,11 +1,13 @@
 from django.db import models
 import datetime
 import openai
+from .secrets import API_KEY
 
 class Meeting(models.Model):
     title = models.CharField(max_length=255)
     id_patient = models.IntegerField()
     discussion = models.TextField()
+    meeting_date = models.DateField(default=datetime.date.today)
     bilan = models.TextField()
     def create_bilan(self):
         message = [
@@ -38,7 +40,7 @@ class Meeting(models.Model):
         self.get_bilan(message)
 
     def get_bilan(self,message):
-        openai.api_key = "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"
+        openai.api_key = API_KEY
         try:
             reponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",

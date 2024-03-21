@@ -1,6 +1,7 @@
 from django.db import models
 import openai
 from django.db import connection, OperationalError
+from .secrets import API_KEY
 
 
 class Generer_reponse(models.Model):
@@ -33,7 +34,7 @@ class Generer_reponse(models.Model):
         self.obtenir_reponse_chat()
 
     def obtenir_reponse_chat(self):
-        openai.api_key = "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"
+        openai.api_key = API_KEY
         try:
             reponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",

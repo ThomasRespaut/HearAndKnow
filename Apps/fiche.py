@@ -1,6 +1,7 @@
 from django.db import models
 from django.db import connection, OperationalError
 import openai
+from .secrets import API_KEY
 
 class Fiche(models.Model):
     id_patient = models.IntegerField()
@@ -125,7 +126,7 @@ class Fiche(models.Model):
         self.situation_medicale = self.get_resume(message)
 
     def get_resume(self, message):
-        openai.api_key = "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"
+        openai.api_key = API_KEY
         try:
             reponse =  openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
