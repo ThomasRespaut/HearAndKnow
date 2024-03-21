@@ -33,7 +33,7 @@ class Generer_reponse(models.Model):
         self.obtenir_reponse_chat()
 
     def obtenir_reponse_chat(self):
-        openai.api_key = "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"
+        openai.api_key = "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"
         try:
             reponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",

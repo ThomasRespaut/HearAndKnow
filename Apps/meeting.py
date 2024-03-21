@@ -5,7 +5,6 @@ import openai
 class Meeting(models.Model):
     title = models.CharField(max_length=255)
     id_patient = models.IntegerField()
-    meeting_date = models.DateField(default=datetime.date.today)
     discussion = models.TextField()
     bilan = models.TextField()
     def create_bilan(self):
@@ -29,7 +28,9 @@ class Meeting(models.Model):
             Médicaments prescrits et ajustements recommandés.
             Recommandations pour le suivi, y compris les soins de soutien et les thérapies complémentaires.
             Coopération et implication de la famille ou des aidants dans le plan de traitement.
-            N'oubliez pas d'être empathique et respectueux dans la rédaction du bilan, en tenant compte de la sensibilité de la situation du patient et de ses proches.'''
+            N'oubliez pas d'être empathique et respectueux dans la rédaction du bilan, en tenant compte de la sensibilité de la situation du patient et de ses proches.
+            
+            Enfin, vous écrirez un texte brut sans mise en page particulière'''
             },
             {"role": "user", "content": f" ID du patient :{self.id_patient}, Date du rdv : {self.meeting_date}, Discussion : {self.discussion} "}
         ]
@@ -37,12 +38,14 @@ class Meeting(models.Model):
         self.get_bilan(message)
 
     def get_bilan(self,message):
-        openai.api_key = "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"
+        openai.api_key = "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"
         try:
             reponse = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=message
             )
-            self.bilan =  reponse.choices[0].message['content']
+            bilan =  reponse.choices[0].message['content']
+
+            self.bilan = bilan.replace("*","")
         except Exception as e:
             self.bilan = f"Une erreur s'est produite : {e}"

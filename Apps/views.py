@@ -10,6 +10,9 @@ from .meeting import Meeting
 from gtts import gTTS
 import speech_recognition as sr
 from django.shortcuts import render
+import speech_recognition as sr
+import tempfile
+import openai
 from pydub import AudioSegment
 
 class BilanView(TemplateView):
@@ -81,9 +84,20 @@ class BilanView(TemplateView):
             if 'import_audio' in request.FILES:
                 uploaded_file = request.FILES['import_audio']
                 text = convert_audio_to_text(uploaded_file)
-                if text:
+                if text != "":
                     # Faire quelque chose avec le texte, comme l'afficher dans le template ou le sauvegarder dans la base de données
+                    id_patient = request.session['selected_patient_id']
+                    title = request.POST['title']
+                    context["title"] = title
+
+                    meetingInstance = Meeting(title=title, discussion=text, id_patient=id_patient)
+                    meetingInstance.create_bilan()
+                    bilan = meetingInstance.bilan
+                    context['bilan'] = bilan
+                    request.session['bilan'] = bilan
                     print(text)
+                    print('-'*50)
+                    print(bilan)
                 else:
                     # Gérer les cas où la conversion échoue
                     print("La conversion audio en texte a échoué.")
@@ -241,7 +255,7 @@ class HistoriqueView(TemplateView):
                 context['name_patient'] = self.request.session['name_patient']
 
             try:
-                meetings = Meeting.objects.filter(id_patient=id_patient)
+                meetings = Meeting.objects.filter(id_patient=id_patient).order_by('-id')
                 context['meetings'] = meetings
             except Meeting.DoesNotExist:
                 # Gérer le cas où aucun objet Meeting correspondant n'est trouvé
@@ -313,13 +327,14 @@ class Login(TemplateView):
         return render(request, 'Apps/bilan.html', context)
 
 
-import speech_recognition as sr
-import tempfile
 
 def convert_audio_to_text(uploaded_file):
-    print(type(uploaded_file))  # Affiche le type de l'objet uploaded_file
     try:
         # Créer un recognizer
+        openai.api_key = "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"
+        transcription = openai.Audio.transcribe("whisper-1", uploaded_file)
+
+        '''
         recognizer = sr.Recognizer()
 
         # Sauvegarder les données audio dans un fichier temporaire
@@ -330,8 +345,8 @@ def convert_audio_to_text(uploaded_file):
         with sr.AudioFile(temp_audio_file.name) as source:
             audio_data = recognizer.record(source)
             text = recognizer.recognize_google(audio_data, language="fr-FR")
-
-        return text
+        '''
+        return transcription
 
     except Exception as e:
         print(f"Erreur lors de la conversion audio en texte : {e}")
