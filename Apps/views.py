@@ -337,7 +337,6 @@ def convert_audio_to_text(uploaded_file):
 
         '''
         recognizer = sr.Recognizer()
-
         # Sauvegarder les données audio dans un fichier temporaire
         with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as temp_audio_file:
             temp_audio_file.write(uploaded_file.read())
