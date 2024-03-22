@@ -10,6 +10,8 @@ class Meeting(models.Model):
     meeting_date = models.DateField(default=datetime.date.today)
     bilan = models.TextField()
     def create_bilan(self):
+        #cat = request.session['category']
+        #permissions = cat.get_permissions()
         message = [
             {"role": "system", "content":
             '''"Assistance Virtuelle pour synthétiser une interaction entre un un Patient Atteint de la Maladie d'Alzheimer et un personnel soignant/non soignant/proche

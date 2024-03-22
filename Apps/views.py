@@ -8,14 +8,13 @@ from .fiche import Fiche, verifier_creer_fiche
 from .questions import Generer_reponse
 from .meeting import Meeting
 from gtts import gTTS
-import speech_recognition as sr
 from django.shortcuts import render
 import speech_recognition as sr
-import tempfile
 import openai
 from .secrets import API_KEY
 import json
 from pydub import AudioSegment
+from .login import Users, check_login
 
 class BilanView(TemplateView):
     template_name = "Apps/bilan.html"
@@ -29,6 +28,8 @@ class BilanView(TemplateView):
 
             if 'name_patient' in self.request.session:
                 context['name_patient'] = self.request.session['name_patient']
+            if 'username' in self.request.session:
+                context['username'] = self.request.session['username']
 
         return context
     @method_decorator(csrf_protect)
@@ -37,6 +38,10 @@ class BilanView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
         selected_patient_id = request.POST.get("patientSelect")
         if selected_patient_id is not None:
             request.session['selected_patient_id'] = selected_patient_id
@@ -115,6 +120,9 @@ class FicheView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['patients'] = get_patient_list()
 
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
         if 'selected_patient_id' in self.request.session:
             context['selected_patient_id'] = self.request.session['selected_patient_id']
             id_patient = context['selected_patient_id']
@@ -134,6 +142,10 @@ class FicheView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
         selected_patient_id = request.POST.get("patientSelect")
         if selected_patient_id is not None:
             request.session['selected_patient_id'] = selected_patient_id
@@ -166,6 +178,8 @@ class QuestionView(TemplateView):
             if 'name_patient' in self.request.session:
                 context['name_patient'] = self.request.session['name_patient']
 
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
 
         return context
 
@@ -175,7 +189,12 @@ class QuestionView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
         selected_patient_id = request.POST.get("patientSelect")
+
 
         if selected_patient_id is not None:
             request.session['selected_patient_id'] = selected_patient_id
@@ -250,6 +269,9 @@ class HistoriqueView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['patients'] = get_patient_list()
 
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
         if 'selected_patient_id' in self.request.session:
             context['selected_patient_id'] = self.request.session['selected_patient_id']
             id_patient = context['selected_patient_id']
@@ -271,6 +293,10 @@ class HistoriqueView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
         selected_patient_id = request.POST.get("patientSelect")
         if selected_patient_id is not None:
             request.session['selected_patient_id'] = selected_patient_id
@@ -325,6 +351,21 @@ class Login(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        username = request.POST.get("username")
+        password = request.POST.get("username")
+
+        user = check_login(username, password)
+        if user:
+            context["username"] = user.username
+            context["category"] = user.category
+            context["id_user"] = user.id_user
+
+            request.session["id_user"] = user.id_user
+            request.session["username"] = user.username
+            request.session["category"] = user.category
+
+
         # Rediriger vers Apps/base.html
         return render(request, 'Apps/bilan.html', context)
 
