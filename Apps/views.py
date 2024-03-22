@@ -13,6 +13,7 @@ from django.shortcuts import render
 import speech_recognition as sr
 import tempfile
 import openai
+from .secrets import API_KEY
 from pydub import AudioSegment
 
 class BilanView(TemplateView):
@@ -331,7 +332,7 @@ class Login(TemplateView):
 def convert_audio_to_text(uploaded_file):
     try:
         # Créer un recognizer
-        openai.api_key = "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"
+        openai.api_key = API_KEY
         transcription = openai.Audio.transcribe("whisper-1", uploaded_file)
 
         '''
