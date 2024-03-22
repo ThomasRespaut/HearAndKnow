@@ -12,6 +12,8 @@ from django.shortcuts import render
 import speech_recognition as sr
 import openai
 from .secrets import API_KEY
+import json
+from pydub import AudioSegment
 from .login import Users, check_login
 from django.http import HttpRequest
 
@@ -417,6 +419,9 @@ def convert_audio_to_text(uploaded_file):
         openai.api_key = API_KEY
         transcription = openai.Audio.transcribe("whisper-1", uploaded_file)
 
+        texte_corrigé = transcription["text"].encode().decode('utf-8')
+
+
         '''
         recognizer = sr.Recognizer()
         # Sauvegarder les données audio dans un fichier temporaire
@@ -428,7 +433,7 @@ def convert_audio_to_text(uploaded_file):
             audio_data = recognizer.record(source)
             text = recognizer.recognize_google(audio_data, language="fr-FR")
         '''
-        return transcription
+        return texte_corrigé
 
     except Exception as e:
         print(f"Erreur lors de la conversion audio en texte : {e}")
