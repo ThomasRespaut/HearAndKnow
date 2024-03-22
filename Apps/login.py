@@ -1,7 +1,7 @@
 from django.db import models
 
 class Users(models.Model):
-    id_user = models.IntegerField(primary_key=True)
+    id_user = models.AutoField(primary_key=True)
     username = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
