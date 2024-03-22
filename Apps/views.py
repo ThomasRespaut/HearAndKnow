@@ -15,11 +15,29 @@ from .secrets import API_KEY
 import json
 from pydub import AudioSegment
 from .login import Users, check_login
+from django.http import HttpRequest
+
+from django.views.generic import TemplateView
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import render
+from django.shortcuts import redirect
+
+from django.shortcuts import redirect
 
 class BilanView(TemplateView):
     template_name = "Apps/bilan.html"
 
-    def get_context_data(self, **kwargs):
+    @method_decorator(csrf_protect)
+    def dispatch(self, request, *args, **kwargs):
+        if 'username' not in request.session:
+            # Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+            return redirect('login')  # Assurez-vous que 'login' est le nom de votre vue de connexion
+        else:
+            print("otto", request.session['username'])
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['patients'] = get_patient_list()
 
@@ -28,16 +46,19 @@ class BilanView(TemplateView):
 
             if 'name_patient' in self.request.session:
                 context['name_patient'] = self.request.session['name_patient']
-            if 'username' in self.request.session:
-                context['username'] = self.request.session['username']
+
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
 
         return context
-    @method_decorator(csrf_protect)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if "log_out" in request.POST:
+            # Supprimer toutes les variables de session
+            request.session.flush()
+            return redirect('login')
 
         if 'username' in self.request.session:
             context['username'] = self.request.session['username']
@@ -53,7 +74,7 @@ class BilanView(TemplateView):
         if "start_recording" in request.POST:
             title = request.POST['title']
             context['title'] = title
-            request.session['title'] =title
+            request.session['title'] = title
 
             # Code pour enregistrer la voix
             recognizer = sr.Recognizer()
@@ -63,11 +84,10 @@ class BilanView(TemplateView):
             try:
                 # Reconnaître le texte à partir de l'audio enregistré
                 discussion = recognizer.recognize_google(audio_data, language="fr-FR")
-                #discussion = "imagine une discussion entre un patient et un docteur"
                 context['discussion'] = discussion
 
                 id_patient = request.session['selected_patient_id']
-                meetingInstance = Meeting(title=title,discussion=discussion, id_patient=id_patient)
+                meetingInstance = Meeting(title=title, discussion=discussion, id_patient=id_patient)
                 meetingInstance.create_bilan()
                 bilan = meetingInstance.bilan
 
@@ -109,12 +129,17 @@ class BilanView(TemplateView):
                     # Gérer les cas où la conversion échoue
                     print("La conversion audio en texte a échoué.")
 
-
-
         return render(request, self.template_name, context)
 
 class FicheView(TemplateView):
     template_name = "Apps/fiche.html"
+    @method_decorator(csrf_protect)
+    def dispatch(self, request, *args, **kwargs):
+        if 'username' not in request.session:
+            # Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+            return redirect('login')  # Assurez-vous que 'login' est le nom de votre vue de connexion
+
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -136,12 +161,13 @@ class FicheView(TemplateView):
 
         return context
 
-    @method_decorator(csrf_protect)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if "log_out" in request.POST:
+            # Supprimer toutes les variables de session
+            request.session.flush()
+            return redirect('login')
 
         if 'username' in self.request.session:
             context['username'] = self.request.session['username']
@@ -166,6 +192,13 @@ class FicheView(TemplateView):
 
 class QuestionView(TemplateView):
     template_name = "Apps/question.html"
+    @method_decorator(csrf_protect)
+    def dispatch(self, request, *args, **kwargs):
+        if 'username' not in request.session:
+            # Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+            return redirect('login')  # Assurez-vous que 'login' est le nom de votre vue de connexion
+
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -183,12 +216,13 @@ class QuestionView(TemplateView):
 
         return context
 
-    @method_decorator(csrf_protect)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if "log_out" in request.POST:
+            # Supprimer toutes les variables de session
+            request.session.flush()
+            return redirect('login')
 
         if 'username' in self.request.session:
             context['username'] = self.request.session['username']
@@ -264,6 +298,13 @@ class QuestionView(TemplateView):
 
 class HistoriqueView(TemplateView):
     template_name = "Apps/historique.html"
+    @method_decorator(csrf_protect)
+    def dispatch(self, request, *args, **kwargs):
+        if 'username' not in request.session:
+            # Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+            return redirect('login')  # Assurez-vous que 'login' est le nom de votre vue de connexion
+
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -287,12 +328,13 @@ class HistoriqueView(TemplateView):
 
         return context
 
-    @method_decorator(csrf_protect)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+
+        if "log_out" in request.POST:
+            # Supprimer toutes les variables de session
+            request.session.flush()
+            return redirect('login')
 
         if 'username' in self.request.session:
             context['username'] = self.request.session['username']
@@ -338,37 +380,37 @@ def text_to_speech(text, language='fr'):
     tts = gTTS(text=text, lang=language)
     return tts
 
+
 class Login(TemplateView):
     template_name = "Apps/login.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
     @method_decorator(csrf_protect)
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-
+        # Capturez les valeurs username et password à partir de la requête POST
         username = request.POST.get("username")
-        password = request.POST.get("username")
+        password = request.POST.get("password")
 
-        user = check_login(username, password)
+        # Vérifiez si les champs sont vides
+        if not username or not password:
+            return render(request, self.template_name, {"message": "Veuillez remplir tous les champs."})
+
+        # Vérifiez les informations d'identification
+        user = Users.objects.filter(username=username, password=password).first()
         if user:
-            context["username"] = user.username
-            context["category"] = user.category
-            context["id_user"] = user.id_user
-
+            # Stockez les informations utilisateur dans la session
             request.session["id_user"] = user.id_user
             request.session["username"] = user.username
             request.session["category"] = user.category
 
-
-        # Rediriger vers Apps/base.html
-        return render(request, 'Apps/bilan.html', context)
-
+            # Redirigez vers une page de réussite de connexion
+            return render(request, 'Apps/bilan.html',
+                          {"username": user.username, "category": user.category, "id_user": user.id_user})
+        else:
+            # Affichez un message d'erreur si les informations d'identification sont incorrectes
+            return render(request, self.template_name, {"message": "Identifiant ou mot de passe incorrect."})
 
 
 def convert_audio_to_text(uploaded_file):

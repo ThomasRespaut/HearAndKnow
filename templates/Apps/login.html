@@ -19,9 +19,10 @@
             <form method="post">
                 {% csrf_token %}
                 <label>Identifiant :</label>
-                <input type="text" placeholder="identifiant" required>
+                <input type="text" placeholder="identifiant" name="username" required>
                 <label>Mot de passe :</label>
-                <input type="password" placeholder="motdepasse" required>
+                <input type="password" placeholder="motdepasse" name="password" required>
+                {{message}}
                 <input type="submit" value="Se connecter">
             </form>
         </div>

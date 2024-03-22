@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Apps/fiche.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/fiche.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Apps/meeting.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/meeting.py" afterDir="false" />
@@ -13,11 +14,19 @@
 =======
       <change afterPath="$PROJECT_DIR$/Apps/login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Hearanknow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Hearanknow.iml" afterDir="false" />
+=======
+>>>>>>> 054943662e3ca7907d0f664540e915470c772a3a
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Apps/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Apps/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Apps/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hearanknow/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Hearanknow/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Apps/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/base.html" afterDir="false" />
+<<<<<<< HEAD
 >>>>>>> 092a71cd617ba19dea6a0ca2ab624c4f7ddcd93c
+=======
+      <change beforePath="$PROJECT_DIR$/templates/Apps/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/login.html" afterDir="false" />
+>>>>>>> 054943662e3ca7907d0f664540e915470c772a3a
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +182,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/HearAndKnow" />
@@ -187,10 +207,6 @@
           <url>file://$PROJECT_DIR$/Hearanknow/settings.py</url>
           <line>11</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Apps/urls.py</url>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

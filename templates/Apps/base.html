@@ -29,8 +29,11 @@
                 <div class="top">
                     <img src="{% static 'ehpad.jpg' %}" alt="Ehpad">
                     <h1>Espace Client</h1>
-                    <button>Espace Admin</button>
-                    <button>Se déconnecter</button>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button name="admin_button">Espace Admin</button>
+                        <button name="log_out">Se déconnecter</button>
+                    </form>
                 </div>
 
 
