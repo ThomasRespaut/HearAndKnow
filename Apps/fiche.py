@@ -36,13 +36,7 @@ class Fiche(models.Model):
                 Allergies alimentaires : Aucune
                 Préférences alimentaires : Traditionnelles, a une aversion pour les aliments épicés
                 Difficultés alimentaires : Oubli fréquent des repas, confusion pendant les repas, difficulté à utiliser les couverts
-                Sortie attendue :
-                
-                Âge : 72 ans
-                Stade de la maladie : Modéré
-                Allergies alimentaires : Aucune
-                Préférences : Aliments traditionnels, éviter les épices
-                Difficultés : Oubli des repas, confusion pendant les repas, difficulté avec les couverts'''
+                '''
              },
             {"role": "user",
              "content": f" ID du patient :{self.id_patient}, Information de l'utilisateur : {informations}"}
@@ -61,13 +55,7 @@ class Fiche(models.Model):
                 Routine de sommeil : Se couche tôt, se réveille plusieurs fois dans la nuit
                 Facteurs perturbateurs du sommeil : Confusion nocturne, anxiété
                 Autres informations pertinentes : Évite la caféine après 16h, utilise des techniques de relaxation avant le coucher
-                Sortie attendue :
-
-                Âge : 72 ans
-                Stade de la maladie : Modéré
-                Routine de sommeil : Se couche tôt, réveils fréquents dans la nuit
-                Facteurs perturbateurs : Confusion nocturne, anxiété
-                Précautions : Éviter la caféine après 16h, utiliser des techniques de relaxation avant le coucher'''
+                '''
              },
             {"role": "user",
              "content": f" ID du patient : {self.id_patient}, Informations utilisateur : {informations}"}
@@ -86,13 +74,7 @@ class Fiche(models.Model):
                 Statut de l'assurance médicale : Couvert par Medicare
                 Personne de contact en cas d'urgence : Fils, numéro de téléphone : +123456789
                 Autres informations administratives : Résidence en maison de retraite, dossier médical partagé avec le médecin traitant
-                Sortie attendue :
-
-                Âge : 72 ans
-                Stade de la maladie : Modéré
-                Assurance médicale : Couvert par Medicare
-                Personne de contact : Fils, numéro de téléphone : +123456789
-                Autres informations : Résidence en maison de retraite, dossier médical partagé avec le médecin traitant'''
+                '''
              },
             {"role": "user",
              "content": f" ID du patient : {self.id_patient}, Informations utilisateur : {informations}"}
@@ -102,7 +84,7 @@ class Fiche(models.Model):
 
         message = [
             {"role": "system", "content":
-                '''Un utilisateur demande à une IA de générer une très très courte fiche en points sur la situation médicale d'un patient atteint de la maladie d'Alzheimer. L'IA doit identifier les informations pertinentes transmises par l'utilisateur pour inclure dans la fiche. Il est important que la fiche soit un résumé donc très courte, , à peine quelques lignes.
+                '''Un utilisateur demande à une IA de générer une très très courte fiche en points sur la situation médicale d'un patient atteint de la maladie d'Alzheimer. L'IA doit identifier les informations pertinentes transmises par l'utilisateur pour inclure dans la fiche. Il est important que la fiche soit un résumé donc très courte, à peine quelques lignes.
 
                 Exemple d'informations utilisateur :
 
