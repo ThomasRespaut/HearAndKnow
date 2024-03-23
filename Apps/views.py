@@ -356,6 +356,102 @@ class HistoriqueView(TemplateView):
         if 'selected_patient_id' in request.session:
             context['selected_patient_id'] = request.session['selected_patient_id']
         return render(request, self.template_name, context)
+
+class AdminView(TemplateView):
+
+    template_name = "Apps/espace_Admin.html"
+    @method_decorator(csrf_protect)
+    def dispatch(self, request, *args, **kwargs):
+        if 'username' not in request.session:
+            # Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+            return redirect('login')  # Assurez-vous que 'login' est le nom de votre vue de connexion
+
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+
+        if "log_out" in request.POST:
+            # Supprimer toutes les variables de session
+            request.session.flush()
+            return redirect('login')
+
+        if 'username' in self.request.session:
+            context['username'] = self.request.session['username']
+
+        selected_patient_id = request.POST.get("patientSelect")
+
+
+        if selected_patient_id is not None:
+            request.session['selected_patient_id'] = selected_patient_id
+            context['selected_patient_id'] = selected_patient_id
+            name_patient = get_patient_name(selected_patient_id)
+            print(name_patient)
+            request.session['name_patient'] = name_patient
+            context['name_patient'] = name_patient
+
+        question = None
+
+        if 'record_button' in request.POST:
+            # Code pour enregistrer la voix
+            recognizer = sr.Recognizer()
+            with sr.Microphone() as source:
+                print("Dites quelque chose...")
+                audio_data = recognizer.listen(source, timeout=30)
+            try:
+                # Reconnaître le texte à partir de l'audio enregistré
+                question = recognizer.recognize_google(audio_data, language="fr-FR")
+
+            except sr.UnknownValueError:
+                question = "La question n'a pas été comprise, nous allons réaliser une description générale du patient"
+                print("Impossible de reconnaître l'audio")
+
+            except sr.RequestError as e:
+                print(f"Erreur lors de la requête à l'API Google : {e}")
+
+            # Si le bouton pour poser une question est soumis
+        elif 'ask_question' in request.POST:
+            question = request.POST.get("question_text")
+
+        #Utiliser GPT pour répondre à la question de l'utilisateur
+        if question:
+            id_patient = request.session['selected_patient_id'] if 'selected_patient_id' in request.session else "141"
+            generer_reponse = Generer_reponse(question=question, id_patient=id_patient)
+            generer_reponse.information_user()
+            generer_reponse.question_user()
+            generer_reponse.save()
+            reponse = generer_reponse.reponse
+            request.session['reponse'] = reponse
+            context['reponse'] = reponse
+
+        #Conversion audio:
+        if 'convert_audio' in request.POST:
+            if request.session['reponse'] :
+                reponse = request.session['reponse']
+                print(reponse)
+                tts = gTTS(text=reponse, lang='fr')
+                audio_bytes = BytesIO()
+                tts.write_to_fp(audio_bytes)
+                audio_bytes.seek(0)
+                context['audio'] = True
+                response = HttpResponse(audio_bytes, content_type='audio/mpeg')
+                response['Content-Disposition'] = 'attachment; filename="audio.mp3"'
+                return response
+
+            else :
+                print("Aucune réponse fournie")
+
+            pass
+
+        context['selected'] = selected_patient_id
+        context['question'] = question
+
+        return render(request, self.template_name, context)
+
 def speech_to_text(request):
     if request.method == 'POST':
         # Utiliser SpeechRecognition pour reconnaître l'audio en temps réel
@@ -380,6 +476,7 @@ def speech_to_text(request):
 def text_to_speech(text, language='fr'):
     tts = gTTS(text=text, lang=language)
     return tts
+
 
 
 class Login(TemplateView):
@@ -439,3 +536,4 @@ def convert_audio_to_text(uploaded_file):
     except Exception as e:
         print(f"Erreur lors de la conversion audio en texte : {e}")
         return None
+
