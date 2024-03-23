@@ -1,29 +1,21 @@
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
-from .models import get_patient_name, get_patient_list
+from django.shortcuts import render
+from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
+
 from io import BytesIO
+from gtts import gTTS
+import speech_recognition as sr
+import openai
+
+from .models import get_patient_name, get_patient_list
 from .fiche import Fiche, verifier_creer_fiche
 from .questions import Generer_reponse
 from .meeting import Meeting
-from gtts import gTTS
-from django.shortcuts import render
-import speech_recognition as sr
-import openai
 from .secrets import API_KEY
-import json
-from pydub import AudioSegment
 from .login import Users, check_login
-from django.http import HttpRequest
-
-from django.views.generic import TemplateView
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_protect
-from django.shortcuts import render
-from django.shortcuts import redirect
-
-from django.shortcuts import redirect
 
 class BilanView(TemplateView):
     template_name = "Apps/bilan.html"
@@ -54,6 +46,8 @@ class BilanView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+        cat = request.session['categorie']
+        permission = cat.get_permissions()
 
         if "log_out" in request.POST:
             # Supprimer toutes les variables de session
@@ -118,7 +112,7 @@ class BilanView(TemplateView):
                     context["title"] = title
 
                     meetingInstance = Meeting(title=title, discussion=text, id_patient=id_patient)
-                    meetingInstance.create_bilan()
+                    meetingInstance.create_bilan(cat,permission)
                     bilan = meetingInstance.bilan
                     context['bilan'] = bilan
                     request.session['bilan'] = bilan

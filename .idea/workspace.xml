@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version" />
+=======
     <list default="true" id="a4f2d325-4435-41ab-86a2-e8de5b7e6ac6" name="Changes" comment="1st version">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -28,6 +31,7 @@
       <change beforePath="$PROJECT_DIR$/templates/Apps/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Apps/login.html" afterDir="false" />
 >>>>>>> 054943662e3ca7907d0f664540e915470c772a3a
     </list>
+>>>>>>> 949b165469312b3a124982f6bb37cf726fa46a9d
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

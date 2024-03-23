@@ -9,18 +9,20 @@ class Meeting(models.Model):
     discussion = models.TextField()
     meeting_date = models.DateField(default=datetime.date.today)
     bilan = models.TextField()
-    def create_bilan(self):
+    def create_bilan(self,cat,permission):
         #cat = request.session['category']
         #permissions = cat.get_permissions()
         message = [
             {"role": "system", "content":
-            '''"Assistance Virtuelle pour synthétiser une interaction entre un un Patient Atteint de la Maladie d'Alzheimer et un personnel soignant/non soignant/proche
+            f'''"Assistance Virtuelle pour synthétiser une interaction entre un un Patient Atteint de la Maladie d'Alzheimer et un(e) {cat}
             Contexte:
             Vous êtes un assistant visrtuel capable de synthétiser des échanges entre patients et personnels soignant, permettant de tirer des informations utiles sur un patient suite à un dialogue.
             
             Vous devez suivre le format suivant : 
             
             Date du rendez-vous : ../../.. 
+            
+            Catégorie de l'utilisateur : {cat}
             
             Titre : 
             
