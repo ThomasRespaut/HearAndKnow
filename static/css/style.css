@@ -384,7 +384,6 @@ ul {
     border: none;
     color: white;
     margin-left: 0.5vw;
-
 }
 
 .histo_rdv{
@@ -442,7 +441,7 @@ button .icone{
 
 .left_connection img{
     width: 70vw;
-    height: 100vh;
+    height: 99.55vh;
 }
 
 .right_connection{
@@ -460,6 +459,8 @@ button .icone{
 .form_connection h1{
     text-align: center;
     font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 4vh;
 }
 
 .form_connection form{
@@ -474,27 +475,35 @@ button .icone{
 .form_connection form input[type="text"],
 .form_connection form input[type="password"]{
     margin-bottom: 3vh;
-    width: 20vw;
-    background: lightgray;
+    width: 18vw;
+    background: var(--blue);
+    border: solid 2px var(--blue);
     height: 3vh;
-    color: black;
+    color: white;
     border-radius: 10px;
     font-family: "Arial";
 }
 
+input::placeholder {
+    color: white;
+}
 
 .form_connection form input[type="submit"]
 {
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 10vw;
     text-align: center;
-    background  : lightgray;
     height: 4vh;
-    padding: 8px 5px;
-    color: black;
-    border-radius: 10px;
+    padding: 3px 0 10px 10px;
+    width: 8vw;
+    background: var(--black_blue);
+    color : white;
+    border-right: 10px;
+    font-size : 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: solid var(--black_blue);
 }
 
 .button_hover {
