@@ -361,8 +361,11 @@ ul {
 
 .question textarea,
 .reponse textarea{
-        height: 14vh;
+    height: 14vh;
     border: none;
+    font-family: "Arial";
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .reponse{
@@ -488,6 +491,13 @@ input::placeholder {
     color: white;
 }
 
+.message {
+    font-weight: bold;
+    margin-bottom: 2vh;
+    font-size: 13px;
+    text-align: center;
+}
+
 .form_connection form input[type="submit"]
 {
     display: flex;
@@ -514,6 +524,8 @@ input::placeholder {
     background: #1e5aa8;
     border : solid #1e5aa8;
 }
+
+
 
 
 
