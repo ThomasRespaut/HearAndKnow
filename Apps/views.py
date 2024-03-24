@@ -25,8 +25,6 @@ class BilanView(TemplateView):
         if 'username' not in request.session:
             # Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
             return redirect('login')  # Assurez-vous que 'login' est le nom de votre vue de connexion
-        else:
-            print("otto", request.session['username'])
         return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
@@ -46,8 +44,14 @@ class BilanView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        cat = request.session['categorie']
-        permission = cat.get_permissions()
+        print('toto')
+        print(request.session)
+        if(request.session['category']) :
+            cat = request.session['category']
+            permission = request.session['permission']
+        else :
+            cat =''
+            permission = 0
 
         if "log_out" in request.POST:
             # Supprimer toutes les variables de session
@@ -79,10 +83,10 @@ class BilanView(TemplateView):
                 # Reconnaître le texte à partir de l'audio enregistré
                 discussion = recognizer.recognize_google(audio_data, language="fr-FR")
                 context['discussion'] = discussion
-
+                request.session['discussion'] = discussion
                 id_patient = request.session['selected_patient_id']
                 meetingInstance = Meeting(title=title, discussion=discussion, id_patient=id_patient)
-                meetingInstance.create_bilan()
+                meetingInstance.create_bilan(cat,permission)
                 bilan = meetingInstance.bilan
 
                 context['bilan'] = bilan
@@ -101,27 +105,41 @@ class BilanView(TemplateView):
             meetingInstance = Meeting(title=title, id_patient=id_patient, bilan=bilan)
             meetingInstance.save()
 
-        if request.method == 'POST':
-            if 'import_audio' in request.FILES:
-                uploaded_file = request.FILES['import_audio']
-                text = convert_audio_to_text(uploaded_file)
-                if text != "":
-                    # Faire quelque chose avec le texte, comme l'afficher dans le template ou le sauvegarder dans la base de données
-                    id_patient = request.session['selected_patient_id']
-                    title = request.POST['title']
-                    context["title"] = title
+        if 'import_audio' in request.FILES:
+            uploaded_file = request.FILES['import_audio']
+            text = convert_audio_to_text(uploaded_file)
+            if text != "":
+                request.session['discussion'] = text
+                id_patient = request.session['selected_patient_id']
+                title = request.POST['title']
+                context["title"] = title
 
-                    meetingInstance = Meeting(title=title, discussion=text, id_patient=id_patient)
-                    meetingInstance.create_bilan(cat,permission)
-                    bilan = meetingInstance.bilan
-                    context['bilan'] = bilan
-                    request.session['bilan'] = bilan
-                    print(text)
-                    print('-'*50)
-                    print(bilan)
-                else:
-                    # Gérer les cas où la conversion échoue
-                    print("La conversion audio en texte a échoué.")
+                meetingInstance = Meeting(title=title, discussion=text, id_patient=id_patient)
+                meetingInstance.create_bilan(cat,permission)
+                bilan = meetingInstance.bilan
+                context['bilan'] = bilan
+                request.session['bilan'] = bilan
+                print(text)
+                print('-'*50)
+                print(bilan)
+            else:
+                # Gérer les cas où la conversion échoue
+                print("La conversion audio en texte a échoué.")
+
+        if 'reload' in request.POST:
+            discussion = request.session['discussion']
+            id_patient = request.session['selected_patient_id']
+            title = request.POST['title']
+            context['title'] = title
+            meetingInstance = Meeting(title=title, discussion=discussion, id_patient=id_patient)
+            meetingInstance.create_bilan()
+            bilan = meetingInstance.bilan
+            context['bilan'] = bilan
+            request.session['bilan'] = bilan
+
+        else:
+            # Gérer les cas où la conversion échoue
+            print("La conversion audio en texte a échoué.")
 
         return render(request, self.template_name, context)
 
@@ -398,6 +416,7 @@ class Login(TemplateView):
             request.session["id_user"] = user.id_user
             request.session["username"] = user.username
             request.session["category"] = user.category
+            request.session["permission"] = user.get_permissions()
 
             # Redirigez vers une page de réussite de connexion
             return render(request, 'Apps/bilan.html',

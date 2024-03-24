@@ -1,5 +1,10 @@
+:root{
+    --blue: #256eb1;
+    --black_blue : #0a3964;
+}
+
 body{
-    font-family: "Calibri";
+    font-family: "Arial";
     margin: 0;
     padding: 0;
 }
@@ -17,9 +22,8 @@ ul {
     padding: 0;
 
 }
-
-.left{
-    background: #0058AA;
+.left {
+    background: #256eb1;
     color: white;
     width: 15vw;
     display: flex;
@@ -27,24 +31,49 @@ ul {
     justify-content: center;
 }
 
-.left ul{
+.left ul {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* Aligner les éléments enfants sur l'axe horizontal */
 }
 
-.left ul li{
-    margin-bottom:  2vh;
+.left ul li {
+    margin-bottom: 3vh;
+    display: flex; /* Ajout de flexbox pour aligner les images et le texte */
+    align-items: center; /* Aligner les éléments enfants sur l'axe vertical */
+    width: 9vw;
+    font-size: 16px;
+    font-weight: bold;
+    height: 4vh;
+    cursor: pointer;
+    transition: text-decoration 0.5s ease;
 }
+
+.left ul li img {
+    margin-right: 10px; /* Ajouter un espace entre l'image et le texte */
+    height: 30px; /* Ajuster la hauteur de l'image selon vos besoins */
+    width: 35px;
+}
+
+.left ul li:hover{
+    text-decoration: underline;
+
+}
+
+
 
 .top img {
     width: 135px; /* Ajustez la largeur de l'image selon vos besoins */
     margin-right: 20px; /* Espacement entre l'image et le texte */
+    height: 88px;
 }
 
 .top h1 {
-    margin: 0;
+    color: white;
+    margin: 0 0 0 5vw;
     text-align: center;
     flex-grow: 1; /* Permet au titre de s'étendre autant que possible */
+    font-family: "Arial Black";
 }
 
 .right{
@@ -56,14 +85,14 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    background: #CCCCCC;
+    padding: 20px 20px 20px 0;
+    background: var(--blue);
     height: 6vh;
 }
 
 .top button{
     width: 8vw;
-    background: black;
+    background: var(--black_blue);
     color : white;
     margin-top : 1vh;
     height: 4vh;
@@ -73,6 +102,7 @@ ul {
     font-size : 14px;
     font-weight: bold;
     border-radius: 8px;
+    border: solid var(--black_blue);
 }
 
 .fenetre{
@@ -92,6 +122,7 @@ ul {
 
 .patient form {
     display: flex;
+    justify-content: center;
     align-items: center; /* Pour centrer verticalement les éléments */
 }
 
@@ -101,11 +132,14 @@ ul {
 }
 
 .patient form select {
-    width: 10vw;
-    height: 3vh;
+    width: 12vw;
+    height: 4vh;
     background : ghostwhite;
     margin-left: 10px; /* Ajoutez un espacement entre le label et le select si nécessaire */
+    font-size: 16px;
+    font-weight: bold;
 }
+
 
 .menu ul{
     display: flex;
@@ -115,34 +149,38 @@ ul {
 }
 
 .menu ul li{
-    width: 5vw;
-    background: ghostwhite;
-    border: solid 2px #CCCCCC;
+    width: 5.5vw;
+    background: #3c7cb6;
+    border: solid 2px var(--blue);
     text-align: center;
+    font-weight: bold;
 }
 
 .menu ul li a{
     text-decoration: none;
-    color : black;
+    color : white;
 }
 
 #selected{
-    background: #CCCCCC;
-    border: solid 2px #CCCCCC;
+    background: var(--blue);
+    border: solid 2px var(--blue);
 }
 
 .patient_content{
-    height: auto;
-    min-height: 65vh;
     width: 80vw;
+    height: 60vh;
     padding-bottom: 2vh;
-    background: #C4C4C4;
-    overflow-y: auto;
+    margin-bottom: 0;
+    background: var(--blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
+
 .footer{
-    background: #CCCCCC;
+    background: var(--blue);
     width: 30vw;
     display: flex;
     flex-direction: column;
@@ -154,7 +192,7 @@ ul {
 .footer p {
     text-align: center;
     font-size: 16px;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
@@ -163,21 +201,32 @@ ul {
     flex-direction: column;
 }
 
-.rdv{
-    margin : 3vh 0 0 5vw;
+.rdv {
+    width: 30vw;
     display: flex;
     flex-direction: row;
+    align-items: center; /* Aligner les éléments sur l'axe vertical */
+    justify-content: center; /* Aligner les éléments sur l'axe horizontal */
+    margin: auto;
+    height: 5vh;
 }
 
-.rdv label{
-    font-size: 22px;
-    margin-right: 2vw;
+.rdv label {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-right: 1vw;
 }
 
-.rdv input[type = "text"]{
-    width: 15vw;
-
+.rdv input[type="text"] {
+    width: 14vw;
+    border: 1px solid var(--black_blue);
+    border-radius: 5px;
+    font-family: "Arial";
+    height: 3.5vh;
+    font-weight: bold;
 }
+
 
 .rdv_button{
     margin-top : 3vh;
@@ -187,7 +236,7 @@ ul {
 }
 
 .audio{
-    margin-left: 5vw;
+    margin-right: 5vw;
 }
 
 .audio button{
@@ -198,7 +247,7 @@ ul {
 }
 
 .import{
-    margin-right: 5vw;
+    margin-left: 5vw;
 }
 
 .import button{
@@ -206,14 +255,17 @@ ul {
     border: none;
     color: black;
     font-size: 20px;
+    margin-left: 0.25vw;
 }
 
 .bilan_text textarea{
     background: white;
     margin: 2vh auto 0 auto;
     display: flex;
-    height: 40vh;
+    height: 35vh;
     width: 60vw;
+    font-size: 16px;
+    font-family: "Arial";
 }
 
 .enregistrer{
@@ -225,10 +277,12 @@ ul {
     margin: auto ;
     width: auto;
     color: white;
-    background: black;
-    padding : 8px 10px 8px 10px;
+    background: var(--black_blue);
+    border: solid var(--black_blue);
+    padding : 6px 12px;
     border-radius: 10px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 .enregistrer button span{
@@ -237,36 +291,40 @@ ul {
 
 .flex-container {
     display: flex;
+    margin: 0 2vw;
     flex-wrap: wrap;
     background: white ;
     justify-content: center;
-    margin : 4vh 4vw;
-    height: 60vh;
-    padding-bottom: 2vh;
+    height: 56vh;
 }
 
 .item {
-  flex: 0 0 42%; /* Chaque élément occupera 50% de la largeur du conteneur parent */
-  box-sizing: border-box; /* Pour inclure les bordures et le padding dans la largeur spécifiée */
-  /*border: 1px solid #000; */ /* Juste pour la décoration, vous pouvez le modifier ou le supprimer selon vos besoins */
+    flex: 0 0 42%; /* Chaque élément occupera 42% de la largeur du conteneur parent */
+    box-sizing: border-box; /* Pour inclure les bordures et le padding dans la largeur spécifiée */
+   /* Juste pour la décoration, vous pouvez le modifier ou le supprimer selon vos besoins */
     margin-left: 2vw;
-    margin-top: 2vh;
+    margin-top: 1vh;
+    max-height: 27vh;
+    overflow: hidden; /* Cacher le texte qui déborde */
+    overflow-y: auto;
 }
 
-.item .titre{
+.item.titre {
     border: solid 1px black;
     margin: 0;
     padding: 0;
     width: 14vw;
     height: 4vh;
     text-align: center;
-
 }
 
-.item .titre h3{
+.item.titre h3 {
     font-size: 16px;
     padding: 0;
     margin-top: 0.5vh;
+    text-overflow: ellipsis; /* Ajouter des points de suspension (...) si le texte déborde */
+    white-space: nowrap; /* Empêcher le texte de passer à la ligne */
+    overflow: hidden; /* Cacher le texte qui déborde */
 }
 
 .item ul{
@@ -280,7 +338,8 @@ ul {
 }
 
 .question_info h3{
-    font-weight: normal;
+    font-weight: bold;
+    color: white;
 }
 
 .question, .reponse{
@@ -293,10 +352,20 @@ ul {
     height: 15vh;
 }
 
+.question label,
+.reponse label{
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
 .question textarea,
 .reponse textarea{
-        height: 14vh;
+    height: 14vh;
     border: none;
+    font-family: "Arial";
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .reponse{
@@ -318,7 +387,6 @@ ul {
     border: none;
     color: white;
     margin-left: 0.5vw;
-
 }
 
 .histo_rdv{
@@ -349,6 +417,11 @@ ul {
     margin-right: 10px;
 }
 
+.import .icone{
+    width: 45px;
+    height: 45px;
+}
+
 button .icone{
     width: 40px;
     height: 40px;
@@ -371,7 +444,7 @@ button .icone{
 
 .left_connection img{
     width: 70vw;
-    height: 100vh;
+    height: 99.55vh;
 }
 
 .right_connection{
@@ -389,6 +462,8 @@ button .icone{
 .form_connection h1{
     text-align: center;
     font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 4vh;
 }
 
 .form_connection form{
@@ -403,27 +478,54 @@ button .icone{
 .form_connection form input[type="text"],
 .form_connection form input[type="password"]{
     margin-bottom: 3vh;
-    width: 20vw;
-    background: lightgray;
+    width: 18vw;
+    background: var(--blue);
+    border: solid 2px var(--blue);
     height: 3vh;
-    color: black;
+    color: white;
     border-radius: 10px;
+    font-family: "Arial";
 }
 
+input::placeholder {
+    color: white;
+}
+
+.message {
+    font-weight: bold;
+    margin-bottom: 2vh;
+    font-size: 13px;
+    text-align: center;
+}
 
 .form_connection form input[type="submit"]
 {
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 10vw;
     text-align: center;
-    background  : lightgray;
     height: 4vh;
-    padding: 8px 5px;
-    color: black;
-    border-radius: 10px;
+    padding: 3px 0 10px 10px;
+    width: 8vw;
+    background: var(--black_blue);
+    color : white;
+    border-right: 10px;
+    font-size : 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: solid var(--black_blue);
 }
+
+.button_hover {
+    transition: background 0.5s ease, border 0.5s ease;
+}
+
+.button_hover:hover {
+    background: #1e5aa8;
+    border : solid #1e5aa8;
+}
+
+
 
 
 

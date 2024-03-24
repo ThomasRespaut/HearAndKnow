@@ -31,6 +31,11 @@
                         <img src="{% static 'importer.png' %}" alt="importer" class="icone">
                     </label>
                     <input type="file" id="audio_file_input" name="import_audio" style="display: none;">
+
+                  <button name="reload">
+                      <img src="{% static 'reload.png' %}" alt="reload" class="icone">
+                  </button>
+
                 </div>
             </div>
             
@@ -39,7 +44,7 @@
             </div>
 
             <div class="enregistrer">
-                <button type="submit" name="save"><span>Enregistrer</span></button>
+                <button type="submit" name="save" class="button_hover"><span>Enregistrer</span></button>
             </div>
             
         
