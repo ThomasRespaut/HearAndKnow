@@ -37,7 +37,7 @@ class Meeting(models.Model):
                 
                 Ensuite tu écriras un court résumé de la discussion afin de garder seulement les informations pertinentes dans l'interaction du proche et du patient.
                 
-                Enfin, vous écrirez un texte brut sans mise en page particulière'''
+                Ecrire un text brut'''
                 },
                 {"role": "user", "content": f" ID du patient :{self.id_patient}, Date du rdv : {self.meeting_date}, Discussion : {self.discussion} "}
             ]
@@ -68,7 +68,7 @@ class Meeting(models.Model):
                 
                 Ensuite tu écriras un court résumé de la discussion afin de garder seulement les informations pertinentes dans l'interaction d'un membre de sa famille et du patient.
                 
-                Enfin, vous écrirez un texte brut sans mise en page particulière'''
+                Ecrire un text brut'''
                  },
                 {"role": "user",
                  "content": f" ID du patient :{self.id_patient}, Date du rdv : {self.meeting_date}, Discussion : {self.discussion} "}
@@ -100,7 +100,7 @@ class Meeting(models.Model):
 
                 N'oublie pas d'être très synthètique et ne garder seulement les informations pertinentes
 
-                Enfin, vous écrirez un texte brut sans mise en page particulière'''
+                Ecrire un text brut'''
                  },
                 {"role": "user",
                  "content": f" ID du patient :{self.id_patient}, Date du rdv : {self.meeting_date}, Discussion : {self.discussion} "}
@@ -132,7 +132,7 @@ class Meeting(models.Model):
                 
                 Ensuite tu écriras un court résumé de la discussion afin de garder seulement les informations pertinentes dans l'interaction d'un personnel soignant et du patient.                
 
-                Enfin, vous écrirez un texte brut sans mise en page particulière'''
+                Ecrire un text brut'''
                  },
                 {"role": "user",
                  "content": f" ID du patient :{self.id_patient}, Date du rdv : {self.meeting_date}, Discussion : {self.discussion} "}
@@ -164,7 +164,7 @@ class Meeting(models.Model):
 
                 Ensuite tu écriras un court résumé de la discussion afin de garder seulement les informations pertinentes dans l'interaction du proche/personnel non soignant/personnel soignant et du patient.
 
-                Enfin, vous écrirez un texte brut sans mise en page particulière'''
+                Ecrire un text brut'''
                  },
                 {"role": "user",
                  "content": f" ID du patient :{self.id_patient}, Date du rdv : {self.meeting_date}, Discussion : {self.discussion} "}
