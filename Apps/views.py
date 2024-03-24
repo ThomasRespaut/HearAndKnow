@@ -132,7 +132,7 @@ class BilanView(TemplateView):
             title = request.POST['title']
             context['title'] = title
             meetingInstance = Meeting(title=title, discussion=discussion, id_patient=id_patient)
-            meetingInstance.create_bilan()
+            meetingInstance.create_bilan(cat,permission)
             bilan = meetingInstance.bilan
             context['bilan'] = bilan
             request.session['bilan'] = bilan
