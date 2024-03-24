@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import BilanView, FicheView, QuestionView, HistoriqueView, Login
+from .views import BilanView, FicheView, QuestionView, HistoriqueView, Login, AdminView
 from . import views
 
 urlpatterns = [
@@ -9,4 +9,5 @@ urlpatterns = [
     path('historique/', HistoriqueView.as_view(), name='historique'),
     path('', views.Login.as_view(), name='login'),
     path('accounts/login/', views.Login.as_view(), name='login'),
+    path('admin/', AdminView.as_view(),name='espace admin' )
 ]

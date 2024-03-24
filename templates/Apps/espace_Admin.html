@@ -1,0 +1,37 @@
+{% extends "Apps/base.html" %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+    <div class="admin">
+        <form id="questionnaire" method="post">
+            {% csrf_token %}
+            <div class="name_firstname">
+                <label>Ajoutez le prénom et le nom du nouveau patient</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Prénom" required="">
+                <input type="text" id="lastname" name="lastname" vplaceholder="Nom" required="">
+            </div>
+            <div class="info_user">
+                <label>Ajoutez des informations sur le nouveau résident</label>
+                    <label>Habitude alimentaire</label>
+                    <textarea name="food_habit" id="food_habit"></textarea>
+                    <label>Habitude sommeil</label>
+                    <textarea name="sleep_habit" id="sleep_habit"></textarea>
+                    <label>Situation médicale</label>
+                    <textarea name="medical_situation" id="medical_situation"></textarea>
+                    <label>Autre informations</label>
+                    <textarea name="other_info" id="other_info"></textarea>
+            <div class="Creation">
+                <button type="submit" name="creation" class="button_hover"><span>Creation</span></button>
+            </div>
+            <div class="Cancel">
+            <button type="button" class="button_hover"><span>Annulation</span></button>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
